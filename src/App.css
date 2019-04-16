@@ -7,6 +7,9 @@
   height: 40vmin;
   pointer-events: none;
 }
+.card-img-top {
+  width: 380px !important;
+}
 
 .App-header {
   background-color: #282c34;
