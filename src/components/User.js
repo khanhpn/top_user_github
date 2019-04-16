@@ -17,12 +17,10 @@ export default class User extends Component {
     var {name} = this.props.match.params
     if(name) {
       return (
-        <div className="row">
-          <div className="col-md-12">
-            <Link to="/users" className="btn btn-success">Back</Link>
-          </div>
-          <div className="col-md-12">{this.showDetailUser()}</div>
-        </div>
+        <>
+          {this.showDetailUser()}
+          <div className="container"><Link className="btn btn-success" to="/users">Back</Link></div>
+        </>
       )
     } else {
       return (
@@ -37,13 +35,23 @@ export default class User extends Component {
     let {user} = this.state;
     if(!user) return <Loading />;
     return(
-      <div className="card">
-        <img className="card-img-top" src={user.avatar_url} alt="Card image cap" />
-        <div className="card-body">
-          <h5 className="card-title">{user.name}</h5>
-          <h4 className="card-title">{user.location}</h4>
-        </div>
-      </div>
+      <header className="clearfix">
+        <nav className="navbar navbar-default">
+          <div className="container">
+            <ul className="nav navbar-nav">
+              <li>
+                <div className="inset">
+                  <img src={user.avatar_url} />
+                </div>
+              </li>
+              <li>
+                <div>{user.name}</div>
+                <div>{user.location}</div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
     )
   }
 
